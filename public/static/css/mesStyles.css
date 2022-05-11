@@ -1,0 +1,338 @@
+
+
+/*================================================ style pour les premuims du menu de recherche ==================================================*/
+
+.search-premuim-title {
+	font-size: 14px;
+	font-weight: 500;
+	padding: 0;
+	line-height: 1px;
+	margin: 0 0 5px 0;
+  padding: 15px 0;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #aaaaaa!important;
+	font-family: "Poppins", sans-serif;
+}
+
+.search-premuim-title::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 4px 10px;
+}
+
+.premuim-badge-search{
+  position: absolute;
+  z-index: 999999;
+  width: 0;
+  height: 0;
+  top: 0;
+  border-top: 20px solid green;
+  border-right: 20px solid transparent;
+}
+.search-premuim-details {
+  padding: -10px;
+  margin: 0;
+  font-size: small;
+  font-weight: 100;
+}
+.search-premuim-details .title {
+  width: 100%;
+  overflow: hidden;
+}
+
+.search-premuim-details span{
+  display: block;
+}
+/*===================================== filtrer de la recherche ======================*/
+
+.tm-search-input {
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  color: #333333;;
+  border: 1px solid #8d99af;
+}
+
+.tm-search-input:focus, .tm-search-input::placeholder {
+  box-shadow: inset 0 0 0.25rem #cda45e;
+  border: 2px solid #cda45e;
+  background-color: white;
+}
+
+.tm-search-btn {
+  color: black;
+  width: 75px;
+  background-color: #8d99af;
+  border: none;
+}
+
+.tm-search-btn:hover , .tm-search-btn:focus {
+  color: white;
+  background-color: #cda45e;
+  border: none;
+}
+
+  .specials .filter-horizontal {
+    display: none;
+  }
+
+  .specials .filter-vertical {
+    display: block;
+  }
+  .tab-content .recent-listing {
+    margin-left: 75px;
+  }
+
+/*================================================ premiun badge ==================================================*/
+
+
+.premuim-badge-article{
+  position: absolute;
+  z-index: 999999;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+  border-top: 40px solid green;
+  border-right: 40px solid transparent;
+}
+
+.premuim-badge-search{
+  position: absolute;
+  z-index: 999999;
+  width: 0;
+  height: 0;
+  top: 0;
+  border-top: 20px solid green;
+  border-right: 20px solid transparent;
+}
+
+/*
+.premuim-badge-article span{
+  
+  position: absolute;
+  z-index: 999999;
+  color: black;
+  background-color: green;
+  transform: rotate(-20deg);
+  width: 45%;
+  margin-left: -171px;
+  
+}
+*/
+.premuim-badge span{
+  position: absolute;
+  z-index: 999999;
+  color: black;
+  background-color: green;
+  transform: rotate(-30deg);
+  width: 25%;
+  margin-left: -20px;
+  padding-left: 25px;
+}
+/*
+.premuim-badge2{
+  position: absolute;
+  z-index: 999999;
+  width: 0;
+  height: 0;
+  border-top: 100px solid green;
+  border-right: 100px solid transparent;
+}
+*/
+/*================================================ style pour les articles les plus récents ==================================================*/
+
+.tm-video-item {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tm-video-item img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    max-width: 100%;
+    opacity: 0.8;
+}
+
+.tm-video-item figcaption {
+    padding: 2em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25em;
+    -webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.tm-video-item figcaption::before,
+.tm-video-item figcaption::after {
+    pointer-events: none;
+}
+
+.tm-video-item figcaption,
+.tm-video-item figcaption > a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.tm-video-item figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.tm-video-item h2, .tm-video-item h6 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+}
+
+.tm-video-item h2, .tm-video-item h6
+.tm-video-item p {
+    margin: 0;
+}
+
+.tm-video-item p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+
+.tm-gallery div.d-block { animation: show .5s ease; }
+
+@keyframes show {
+    0% {
+    	opacity: 0;
+    	transform: scale(0.9);
+    }
+    100% {
+    	opacity: 1;
+    	transform: scale(1);
+    }
+}
+
+.tm-paging-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    font-size: 1.1rem;
+    color: #999;
+    background-color: #EEEEEE;
+    margin: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tm-paging-link:hover,
+.tm-paging-link.active {
+    background-color: #009999;
+    color: #fff; 
+}
+
+/*---------------*/
+/***** Ming *****/
+/*---------------*/
+
+figure.effect-ming {
+	background: #030c17;
+}
+
+figure.effect-ming img {
+	opacity: 0.9;
+	-webkit-transition: opacity 0.35s;
+	transition: opacity 0.35s;
+}
+
+figure.effect-ming figcaption::before {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	bottom: 30px;
+	left: 30px;
+	border: 2px solid #fff;
+	box-shadow: 0 0 0 30px rgba(255,255,255,0.2);
+	content: '';
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale3d(1.4,1.4,1);
+	transform: scale3d(1.4,1.4,1);
+}
+
+figure.effect-ming h2, figure.effect-ming h6 {
+    font-size: 1.3em;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+figure.effect-ming:hover figcaption::before,
+figure.effect-ming:hover h2, figure.effect-ming:hover h6 {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+figure.effect-ming:hover figcaption { background-color: rgba(58,52,42,0); }
+figure.effect-ming:hover img { opacity: 0.4; }
+
+.tm-footer-links li {
+    list-style: none;
+    margin-bottom: 5px;    
+}
+
+
+/******************************telephone***********************/
+
+@media (max-width: 767px) {
+  .premuim-badge span{
+    width: 50%;
+  }
+
+  .premuim-badge-article{
+    border-top: 20px solid green;
+    border-right: 20px solid transparent;
+  }
+
+  /*--filtrer de la recherche --*/
+  .specials .filter-horizontal {
+    display: block;
+  }
+
+  .specials .filter-vertical {
+    display: none;
+  }
+  .section-title {
+    padding-bottom: 10px;
+  }
+  .about {
+    padding: 5px 0;
+  }
+
+
+  /* affichage du titre de la section sous mobile */
+  .section-title p {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    font-size: calc(1.3575rem + 1.29vw);
+  }
+
+  .tab-content .recent-listing {
+    margin: 0;
+  }
+
+}

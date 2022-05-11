@@ -83,29 +83,39 @@
                     </div>
                 </div>
             </div>
-
+             {{-- setting --}}
             <div class="col-sm-5">
                 <div class="user-area dropdown float-right">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
-                    </a>
-
+                    @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}"><i class="fa fa-angle-down"></i>
+                        </a>
+                    @else
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }}  <i class="fa fa-angle-down"></i>
+                        </a>
+                       
+                    @endif
+                    
+                   
                     <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                        <a class="nav-link" href="{{ route('profile.show') }}"><i class="fa fa-user"></i> {{ __('Profile') }}</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+                        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+                            <a href="{{ route('api-tokens.index') }}">{{ __('API Tokens') }}</a>
+                        @endif
 
-                        <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            <a class="nav-link" href="{{ route('logout') }}"><i class="fa fa-power-off"></i>{{ __('Log Out') }}</a>
+                        </form>
                     </div>
                 </div>
 
                 <div class="language-select dropdown" id="language-select">
                     <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
-                        <i class="flag-icon flag-icon-us"></i>
+                        <i class="flag-icon flag-icon-cm"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="language">
+                    {{-- <div class="dropdown-menu" aria-labelledby="language">
                         <div class="dropdown-item">
                             <span class="flag-icon flag-icon-fr"></span>
                         </div>
@@ -118,7 +128,10 @@
                         <div class="dropdown-item">
                             <i class="flag-icon flag-icon-it"></i>
                         </div>
-                    </div>
+                        <div class="dropdown-item">
+                            <i class="flag-icon flag-icon-cm"></i>
+                        </div>
+                    </div> --}}
                 </div>
 
             </div>

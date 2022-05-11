@@ -1,0 +1,355 @@
+/* Blog Single CSS */
+.blog-single{
+	background: transparent;
+	/*padding:70px 0 100px;*/
+}
+.blog-single .blog-single-main {
+	margin-top: 30px;
+	background: transparent;
+}
+
+.blog-single .content .img-post{
+	margin-bottom: 25px;
+}
+.blog-single .share-social .content-tags {
+	position: relative;
+	margin-top: 25px;
+}
+.blog-single .share-social .content-tags h4 {
+	position: absolute;
+	left: 0;
+	top: 7px;
+	font-size: 15px;
+	font-weight: 500;
+}
+.blog-single .share-social .content-tags .tag-inner{
+	padding-left:60px;
+}
+.blog-single .share-social .content-tags .tag-inner li {
+	display: inline-block;
+	margin-right: 7px;
+	margin-bottom: 10px;
+	margin-top: 4px;
+}
+.blog-single .share-social .content-tags .tag-inner li:last-child{
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.blog-single .share-social .content-tags .tag-inner li a {
+	border-radius: 30px;
+	padding: 5px 15px;
+	background:#f4f7fc;
+	font-size: 13px;
+}
+.blog-single .share-social .content-tags .tag-inner li a:hover{
+	color:#fff;
+	background:#F7941D;
+}
+
+/* Comments */
+.blog-single .comments{
+	margin-top:40px;
+}
+.blog-single .comments .comment-title {
+	position: relative;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: capitalize;
+	margin-bottom: 30px;
+	display: block;
+	background: transparent;
+	padding-left: 12px;
+}
+.blog-single .comments .comment-title:before{
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: -1px;
+	height: 100%;
+	width: 3px;
+	background:#F7941D;
+}
+.blog-single .comments{
+	
+}
+.blog-single .comments .single-comment {
+	position: relative;
+	margin-bottom: 40px;
+	border-radius: 5px;
+	padding-left: 95px;
+}
+.blog-single .comments .single-comment.left{
+	margin-left:110px;
+}
+.blog-single .comments .single-comment img {
+	height: 70px;
+	width: 70px;
+	border-radius: 100%;
+	position: absolute;
+	left: 0;
+}
+.blog-single .single-comment .content {
+	
+}
+.blog-single .single-comment .content h4 {
+	color: #333;
+	font-size: 16px;
+	font-weight: 500;
+	margin-bottom: 10px;
+	display: inline-block;
+	margin-bottom: 18px;
+	text-transform: capitalize;
+}
+.blog-single .single-comment .content h4 span {
+	display: inline-block;
+	font-size: 13px;
+	color: #8D8D8D;
+	margin: 0;
+	font-weight: 400;
+	text-transform: capitalize;
+	display: block;
+	margin-top: 5px;
+}
+.blog-single .single-comment .content p {
+	color: #666;
+	font-weight: 400;
+	display: block;
+	margin: 0;
+	margin-bottom: 20px;
+	line-height: 22px;
+}
+.blog-single .single-comment .content .button{}
+.blog-single .single-comment .content .btn {
+	display: inline-block;
+	color: #666;
+	font-weight: 400;
+	color: #6a6a6a;
+	border-radius: 4px;
+	text-transform: capitalize;
+	font-size: 14px;
+	background: transparent;
+	padding: 0;
+}
+.blog-single .single-comment .content a i{
+	display:inline-block;
+	margin-right:5px;
+}
+.blog-single .single-comment .content a:hover{
+	color:#F7941D;
+}
+
+
+/* Comment Form */
+.blog-single .reply form {
+	padding: 0 40px;
+	/*border: 1px solid #eee;*/
+}
+.blog-single .reply .reply-title, .subtitle {
+	position: relative;
+	font-size: 18px;
+	font-weight: 600;
+	text-transform: capitalize;
+	margin-bottom: 30px;
+	display: block;
+	background: transparent;
+	padding-left: 12px;
+}
+.blog-single .reply .reply-title:before, .subtitle:before{
+	position: absolute;
+	content: "";
+	left: 0;
+	bottom: -1px;
+	height: 100%;
+	width: 3px;
+	background:#F7941D;
+}
+.blog-single .reply .form-group {
+	margin-bottom: 20px;
+}
+/*
+.blog-single .reply .form-group input {
+	width: 100%;
+	height: 45px;
+	line-height: 50px;
+	padding: 0 20px;
+	border-radius: 0px;
+	color: #333 !important;
+	border: none;
+	border: 1px solid #eee;
+}
+*/
+.blog-single .reply .form-group textarea {
+	width: 100%;
+	height: 130px;
+	line-height: 30px;
+	padding: 0 10px;
+	border-radius: 0px;
+	color: #8D8D8D;
+	border: none;
+	border: 1px solid #eee;
+	background-color: transparent;
+}
+.blog-single .reply .form-group textarea:focus {
+	background-color: #fff;
+	color: #000;
+}
+.blog-single .reply .form-group label {
+	color: #8D8D8D;
+	position: relative;
+}
+.blog-single .reply .form-group label span {
+	color:#ff2c18;
+	display: inline-block;
+	position: absolute;
+	right: -12px;
+	top: 4px;
+	font-size: 16px;
+}
+.blog-single .reply .button {
+	text-align: left;
+	margin-bottom: 0px;
+}
+.blog-single .reply .button .btn {
+	height: 50px;
+	background-color: white;
+	color: #000;
+	border: 0;
+	cursor: pointer;
+}
+.blog-single .reply .button .btn:hover {
+	color: white;
+	background-color: rgb(2, 154, 129);
+}
+
+/*======================================
+   End Shop Blog CSS
+========================================*/
+
+
+
+/*======================================
+  21. Contact CSS
+========================================*/
+.contact-us {
+	position: relative;
+	z-index: 43;
+	background-color: #000;
+}
+.contact-us .title{
+	margin-bottom: 30px;
+}
+.contact-us .title h4 {
+	font-size: 17px;
+	font-weight: 500;
+	margin-bottom: 5px;
+	color: #F7941D;
+}
+.contact-us .title h3 {
+	font-size: 25px;
+	text-transform: capitalize;
+	font-weight: 600;
+}
+.contact-us .single-head {
+	padding: 50px;
+	box-shadow: 0px 0px 7px #a6a5a5;
+	height: 100%;
+}
+.contact-us .single-info {
+	text-align: left;
+	margin-bottom:30px;
+}
+.contact-us .single-info i {
+	color: #fff;
+	font-size: 18px;
+	display: inline-block;
+	margin-bottom: 15px;
+	height: 40px;
+	width: 40px;
+	display: block;
+	text-align: center;
+	border-radius: 3px;
+	line-height: 40px;
+	background:#F7941D;
+}
+.contact-us .single-info ul
+.contact-us .single-info ul li{
+	margin-bottom:5px;
+}
+.contact-us .single-info ul li:last-child{
+	margin-bottom:0;
+}
+.contact-us .single-info ul li a{
+	font-weight:400;
+}
+.contact-us .single-info ul li a:hover{
+	color:#F7941D;
+}
+.contact-us .single-info .title {
+	margin-bottom: 10px;
+	font-weight: 500;
+	color: #333;
+	font-size: 18px;
+}
+.contact-us .form-main {
+	box-shadow: 0px 0px 15px #0000001a;
+	padding: 50px;
+}
+.contact-us .form .form-group input {
+	height: 48px;
+	line-height: 48px;
+	width: 100%;
+	border: 1px solid #e6e2f5;
+	padding: 0px 20px;
+	color: #333;
+	border-radius: 0px;
+	font-weight: 400;
+}
+.contact-us .form .form-group textarea {
+	height: 180px;
+	width: 100%;
+	border: 1px solid #e6e2f5;
+	padding: 15px 20px;
+	color: #333;
+	border-radius: 0px;
+	resize: none;
+	font-weight:400;
+}
+.contact-us .form .form-group label {
+	color: #333;
+	position: relative;
+}
+.contact-us .form .form-group label span {
+	color: #ff2c18;
+	display: inline-block;
+	position: absolute;
+	right: -12px;
+	top: 4px;
+	font-size: 16px;
+}
+.contact-us .form .button {
+	margin:0;
+}
+.contact-us .form .button .btn {
+	height: 50px;
+	border: none;
+}
+.myMap {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+	width: 100%;
+	height: 100%;
+}
+
+.myMap img {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    width: 100%;
+	height: 300px;
+    opacity: 0.9;
+	margin: auto;
+}
+/*======================================
+  End Contact CSS
+========================================*/

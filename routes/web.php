@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Livewire\Dashbord;
-use App\Http\Livewire\EmploiDeTemps;
 use App\Http\Livewire\Form;
+use App\Http\Livewire\Test;
+use App\Http\Livewire\Dashbord;
 use App\Http\Livewire\TableBasic;
+use App\Http\Livewire\EmploiDeTemps;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,16 +23,22 @@ Route::get('/;', function () {
     return view('welcome');
 });
 Route::get('/form', Form::class);
-Route::get('/', Dashbord::class);
+Route::get('/!', Dashbord::class);
 Route::get('table-basic', TableBasic::class);
 Route::get('table-avanced', EmploiDeTemps::class);
+Route::get('/test', Test::class);
 
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/', Dashbord::class)->name('dashboard');
+    Route::get('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
+
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
