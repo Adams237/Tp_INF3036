@@ -5,6 +5,7 @@ use App\Http\Livewire\Test;
 use App\Http\Livewire\Dashbord;
 use App\Http\Livewire\TableBasic;
 use App\Http\Livewire\EmploiDeTemps;
+use App\Http\Livewire\FormFiliere;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -27,6 +28,8 @@ Route::get('/!', Dashbord::class);
 Route::get('table-basic', TableBasic::class);
 Route::get('table-avanced', EmploiDeTemps::class);
 Route::get('/test', Test::class);
+Route::get('/formFiliere', FormFiliere::class);
+Route::post('/formFiliere', FormFiliere::class)->name('formFiliere');
 
 Route::middleware([
     'auth:sanctum',
@@ -38,7 +41,3 @@ Route::middleware([
 });
 
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
