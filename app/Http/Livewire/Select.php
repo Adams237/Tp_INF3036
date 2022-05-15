@@ -6,10 +6,14 @@ use Livewire\Component;
 
 class Select extends Component
 {
-    public $tab ;
-    public $tabs = ['bonjour', 'add', 'com', 'pau', 'al'];
+    public $filiere;
+    public $niveau;
+    public $specialite;
+    public $effectif;
+
     public function render()
     {
+        // dd($this->filiere);
         return view('livewire.select');
     }
 }

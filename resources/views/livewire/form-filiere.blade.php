@@ -2,8 +2,9 @@
     <div class="card">
         <div class="card-body p-4">
             <div class="p-3">
-                <form wire:submit.prevent="envoyer" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('emploiDeTemps') }}" enctype="multipart/form-data">
                     {{ $filiere }}
+                    <input type="hidden" name="filiere" value="{{ $filiere }}">
                     @csrf
                     <div class="form-group">
                         <label>{{ __("Niveau") }}</label>
@@ -36,8 +37,10 @@
                                         <i class="ri-mail-line"></i>
                                     </span>
                                 </div>
+                                
                                 @if ( !empty($specialites) )
-                                    <select wire:model="specialite" name="specialite" id="specialite"class="form-control bg-soft-light border-light @error('specialite') is-invalid @enderror" name="specialite" value="{{ old('specialite') }}" required autocomplete="specialite" placeholder="{{ __("specialite") }}">
+                                    <select wire:model="choixSpec" name="choixSpec" id="choixSpec" class="form-control bg-soft-light border-light @error('specialite') is-invalid @enderror"  required >
+                                        {{-- <option selected>{{ $choixSpec }}</option> --}}
                                         @foreach ($specialites as $specialite )
                                             <option value="{{ $specialite->nomSpec }}">{{ $specialite->nomSpec }}</option>
                                         @endforeach
@@ -49,7 +52,7 @@
                     @endif
                     
                     <div class="form-group">
-                        <label>{{ __("Effectif") }}</label>
+                        <label>{{ __("Effectif") }} {{ $choixSpec }} {{ $niveau }}</label>
                         <div class="input-group mb-3 bg-soft-light input-group-lg rounded-lg">
                             <div class="input-group-prepend">
                                 <span class="input-group-text border-light text-muted">
@@ -57,7 +60,7 @@
                                 </span>
                             </div>
                                 
-                            <input id="effectif" type="text" class="form-control bg-soft-light border-light @error('effectif') is-invalid @enderror" name="effectif" value="@if (!empty($spec)) {{ $spec[0]->effectifSpec }} @endif" required autocomplete="effectif" >
+                            <input id="effectif" type="text" class="form-control bg-soft-light border-light @error('effectif') is-invalid @enderror" name="effectif" value="@if (!empty($spec)) {{ $effectif }} @else {{ $effectif }} @endif" required autocomplete="effectif" >
                                 {{-- @if (!empty($spec))
                                     {{ $spec[0]->effectifSpec }}  
                                 @else --}}
@@ -65,53 +68,8 @@
                                 {{-- @endif                               --}}
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label>{{ __("Pseudo") }}</label>
-                        <div class="input-group mb-3 bg-soft-light input-group-lg rounded-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text border-light text-muted">
-                                    <i class="ri-user-2-line"></i>
-                                </span>
-                            </div>
-                            <input id="name" type="text" class="form-control bg-soft-light border-light @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="{{ __("Enter Username") }}">
-                            @error('name')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror 
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label>{{ __("Mot de passe") }}</label>
-                        <div class="input-group mb-3 bg-soft-light input-group-lg rounded-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text border-light text-muted">
-                                    <i class="ri-lock-2-line"></i>
-                                </span>
-                            </div>
-                            <input id="password" type="password" class="form-control bg-soft-light border-light @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="{{ __("Enter Password") }}">
-                            @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-4">
-                        <label>{{ __("Confirmation ") }}</label>
-                        <div class="input-group mb-3 bg-soft-light input-group-lg rounded-lg">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text border-light text-muted">
-                                    <i class="ri-lock-2-line"></i>
-                                </span>
-                            </div>
-                            <input id="password-confirm" type="password" class="form-control bg-soft-light border-light" name="password_confirmation" required autocomplete="new-password" placeholder="{{ __("Enter Confirm Password") }}">
-                        </div>
-                    </div>
                     <div>
-                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Enregistrer") }}</button>
+                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Créer emploi de temps") }}</button>
                     </div>
 
                     <div class="mt-4 text-center">

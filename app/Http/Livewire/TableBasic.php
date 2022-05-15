@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class TableBasic extends Component
 {
-    public function render()
+    public function render(Request $request)
     {
-        return view('livewire.table-basic')->layout('layouts.app2');
+        dd($request);
+        // return view('livewire.table-basic')->layout('layouts.app2');
     }
 }

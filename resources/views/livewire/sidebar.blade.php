@@ -15,8 +15,8 @@
                         <form method="POST" action="{{ route('formFiliere') }}">
                             @csrf
                             <li >
-                                <input type="text" name="nom" value="{{ $filiere->nomFiliere }}" style="display: none">
-                                <input type="text" name="id"  value="{{ $filiere->idFiliere }}" style="display: none">
+                                <input name="nom" value="{{ $filiere->nomFiliere }}" type="hidden">
+                                <input name="id"  value="{{ $filiere->idFiliere }}" type="hidden">
                                 <a href=""><button type="submit" style="background: none; border:none" ><span style="cursor: pointer">{{ $filiere->nomFiliere }}</span></button></a>
                             </li>
                         </form>

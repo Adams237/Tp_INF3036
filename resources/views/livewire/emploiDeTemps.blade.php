@@ -5,8 +5,8 @@
 
                     <div class="col-md-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <strong class="card-title">Bordered Table</strong>
+                                <div class="card-header text-center text-uppercase display-6">
+                                    <strong class="card-title">{{ $filiere }}-@if ($niveau<4)L{{ $niveau }} @elseif($niveau==4) M1 @else M2 @endif-@if(!empty($specialite)) {{ $specialite }} @endif</strong>
                                 </div>
                                 <form wire:submit.prevent = "envoyer">
                                     <div class="card-body">
@@ -28,85 +28,87 @@
                                                 <tr>
                                                     <th scope="row">7H-9h55</th>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">10H05-12H50</th>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select') 
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"> 
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        @livewire('select')
+                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">13h-15H55</th>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')r</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">r</td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">16H05-18H50</th>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">19H00-21H55</th>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
-                                                    <td>@livewire('select')</td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button type="submit">envoyer</button>
+                                    <div>
+                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Créer emploi de temps") }}</button>
+                                    </div>
                                 </form>
                             </div>
                     </div>

@@ -2,15 +2,17 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Http\Request;
 use Livewire\Component;
 
 class EmploiDeTemps extends Component
 {
-    public $ue;
-    public $professeur;
-    public $salle;
-    public $tab ;
-    public $tabs = ['bonjour', 'add', 'com', 'pau', 'al'];
+
+    public $filiere;
+    public $niveau;
+    public $specialite;
+    public $tabs = ['change', 'uand', 'même', 'pour', 'verifier'];
+
     public function envoyer(){
         $validateData = $this->validate([
             'ue' => 'nullable',
@@ -19,8 +21,16 @@ class EmploiDeTemps extends Component
         ]);
         dd($validateData);
     }
+
+    public function mount(Request $request) {
+        $this->filiere = $request->filiere;
+        $this->niveau = $request->niveau;
+        $this->specialite = $request->choixSpec;
+    }
+
     public function render()
     {
+        // dd($this->tabs);
         return view('livewire.emploiDeTemps')->layout('layouts.app2');
     }
 }
