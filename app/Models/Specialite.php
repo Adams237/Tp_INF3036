@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Ue;
 use App\Models\Cour;
 use App\Models\Filiere;
 use Illuminate\Database\Eloquent\Model;
@@ -12,6 +13,10 @@ class Specialite extends Model
     use HasFactory;
 
     protected $fillable = ['nomSpec', 'effectifSpec'];
+
+    public function ues(){
+        return $this->hasMany(Ue::class);
+    }
 
     public function filiere()
     {

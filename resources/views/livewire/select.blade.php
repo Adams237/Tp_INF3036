@@ -1,5 +1,5 @@
 <div>
-    <livewire:ue :ues="$filiere">
-    <livewire:enseignant :enseignants="$filiere">
-    <livewire:salle :salles="$filiere">
+    <livewire:ue :specialite="$specialite">
+    <livewire:enseignant :filiere="$filiere">
+    <livewire:salle :filiere="$filiere">
 </div>

@@ -28,80 +28,83 @@
                                                 <tr>
                                                     <th scope="row">7H-9h55</th>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <span wire:model = "changer">
+                                                        <livewire:select :filiere="$filiere" :specialite="$specialite" :niveau="$niveau">
+                                                        </span>
+                                                    </td>
+                                                    <!-- <td>
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
-                                                    </td>
-                                                    <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">10H05-12H50</th>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"> 
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"> 
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                     <td>
-                                                        <livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">
+                                                        <livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">13h-15H55</th>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs">r</td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">16H05-18H50</th>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
                                                 </tr>
                                                 <tr>
                                                     <th scope="row">19H00-21H55</th>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
-                                                    <td><livewire:select :filiere="$tabs" :niveau="$tabs" :specialite="$tabs" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                    <td><livewire:select :matiere="$ues" :amphi="$salles" :prof="$enseignants" :effectif="$tabs"></td>
+                                                </tr> -->
                                                 </tr>
                                             </tbody>
                                         </table>
