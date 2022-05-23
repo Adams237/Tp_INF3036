@@ -19,8 +19,8 @@ class Enseignant extends Component
     }
     public function render(Request $request)
     { 
-        $this->idd  = DB::table('departements')->where('nomDep', $request->filiere)->value('idDep');
-        $this->enseignants = DB::table('enseignants')->where('idDep', $this->idd)->pluck('nomEns');
+        $this->idd  = DB::table('departements')->where('nom_dep', $request->filiere)->value('id');
+        $this->enseignants = DB::table('enseignants')->where('id', $this->idd)->pluck('nom_ens');
 
         // dd($this->enseignants);
         return view('livewire.enseignant');

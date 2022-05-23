@@ -13,8 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('enseignant')->default('0');
+        Schema::create('specialites', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom_spec');
+            $table->unsignedBigInteger('id_filiere');
+            $table->foreign('id_filiere')->references('id')->on('filieres');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('specialites');
     }
 };

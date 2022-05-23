@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ues', function (Blueprint $table) {
-            $table->unsignedBigInteger('idUe')->autoIncrement();
-            $table->string('intutile',10)->unique();
-            $table->unsignedBigInteger('idSpec');
-            $table->foreign('idSpec')->references('idSpec')->on('specialites');
+        Schema::create('filieres', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom_filiere', 50);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ues');
+        Schema::dropIfExists('filieres');
     }
 };

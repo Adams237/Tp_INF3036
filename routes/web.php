@@ -7,6 +7,7 @@ use App\Http\Livewire\TableBasic;
 use App\Http\Livewire\FormFiliere;
 use App\Http\Livewire\EmploiDeTemps;
 use App\Http\Livewire\EmploiDeTemps2;
+use App\Http\Livewire\PlanifierCours;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
@@ -29,6 +30,8 @@ Route::get('/!', Dashbord::class);
 Route::get('table-basic', TableBasic::class);
 Route::get('/emploiDeTemps', EmploiDeTemps::class);
 Route::post('/emploiDeTemps2', EmploiDeTemps::class)->name('emploiDeTemps');
+Route::get('/planifier', PlanifierCours::class);
+Route::post('/planifier2', PlanifierCours::class)->name('planifier');
 Route::get('/test', Test::class);
 Route::get('/formFiliere', FormFiliere::class);
 Route::post('/formFiliere', FormFiliere::class)->name('formFiliere');

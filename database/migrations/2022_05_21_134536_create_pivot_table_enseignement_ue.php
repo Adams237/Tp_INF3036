@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('salles', function (Blueprint $table) {
-            $table->unsignedBigInteger('idSalle')->autoIncrement();
-            $table->string('nomSalle', 10);
-            $table->integer('capacite');
+        Schema::create('enseignement_ue', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('id_ense');
+            $table->unsignedBigInteger('id_ue');
+            $table->foreign('id_ense')->references('id')->on('enseignements');
+            $table->foreign('id_ue')->references('id')->on('ues')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('salles');
+        Schema::dropIfExists('pivot_table_enseignement_ue');
     }
 };

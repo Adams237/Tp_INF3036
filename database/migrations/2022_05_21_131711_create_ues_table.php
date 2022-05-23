@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('specialites', function (Blueprint $table) {
-            $table->unsignedBigInteger('idSpec')->autoIncrement();
-            $table->string('nomSpec', 30);
-            $table->integer('effectifSpec');
-            $table->unsignedBigInteger('idFiliere');
-            $table->foreign('idFiliere')->references('idFiliere')->on('filieres');
+        Schema::create('ues', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom_ue');
+            $table->string('code_ue')->unique();
+            $table->unsignedBigInteger('id_niveau');
+            $table->foreign('id_niveau')->references('id')->on('niveaux');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('specialites');
+        Schema::dropIfExists('ues');
     }
 };

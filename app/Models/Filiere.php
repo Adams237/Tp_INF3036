@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Specialite;
+use App\Models\Enseignement;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -10,10 +10,7 @@ class Filiere extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nomFiliere'];
-
-    public function specialites()
-    {
-        return $this->hasMany(Specialite::class);
+    public function enseignements(){
+        return $this->hasMany(Enseignement::class);
     }
 }

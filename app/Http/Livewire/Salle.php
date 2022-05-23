@@ -12,7 +12,7 @@ class Salle extends Component
     public $salles = [];
     public function render()
     {
-        $this->salles = DB::table('salles')->pluck('nomSalle');
+        $this->salles = DB::table('salles')->pluck('nom_salle');
         // dd($this->salles);
         return view('livewire.salle');
     }

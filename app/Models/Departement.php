@@ -10,10 +10,7 @@ class Departement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nomDep'];
-
     public function enseignants(){
         return $this->hasMany(Enseignant::class);
     }
-
 }

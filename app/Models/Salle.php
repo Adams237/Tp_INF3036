@@ -10,10 +10,7 @@ class Salle extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nomSalle','capacite'];
-
-    public function cours()
-    {
+    public function cours(){
         return $this->hasMany(Cour::class);
     }
 }

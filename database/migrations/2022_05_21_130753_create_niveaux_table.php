@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('classes', function (Blueprint $table) {
-            $table->unsignedBigInteger('idClasse')->autoIncrement();
-            $table->string('nomClasse',15);
-            $table->unsignedBigInteger('idFiliere');
-            $table->string('groupe', 1);
+        Schema::create('niveaux', function (Blueprint $table) {
+            $table->id();
+            $table->integer('niveau');
             $table->integer('effectif');
-            $table->foreign('idFiliere')->references('idFiliere')->on('filieres');
+            $table->unsignedBigInteger('id_filiere');
+            $table->unsignedBigInteger('id_spec')->nullable();
+            $table->foreign('id_spec')->references('id')->on('specialites');
+            $table->foreign('id_filiere')->references('id')->on('filieres');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('classes');
+        Schema::dropIfExists('niveaux');
     }
 };

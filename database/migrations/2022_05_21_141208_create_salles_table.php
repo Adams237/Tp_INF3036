@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('departements', function (Blueprint $table) {
-            $table->unsignedBigInteger('idDep')->autoIncrement();
-            $table->string('nomDep', 15)->unique();
+        Schema::create('salles', function (Blueprint $table) {
+            $table->id();
+            $table->string('nom_salle',50);
+            $table->integer('capacite');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departements');
+        Schema::dropIfExists('salles');
     }
 };

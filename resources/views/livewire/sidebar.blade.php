@@ -10,14 +10,14 @@
                 <ul class="sub-menu children dropdown-menu">
                     @foreach ($filieres as $filiere )
                         {{-- <li >
-                            <a href="formFiliere"><span name="{{ $filiere->nomFiliere }}" id="{{ $filiere->nomFiliere }}">{{ $filiere->nomFiliere }}</span> </a>
+                            <a href="formFiliere"><span name="{{ $filiere->nom_filiere }}" id="{{ $filiere->nom_filiere }}">{{ $filiere->nom_filiere }}</span> </a>
                         </li>   --}}
                         <form method="POST" action="{{ route('formFiliere') }}">
                             @csrf
                             <li >
-                                <input name="nom" value="{{ $filiere->nomFiliere }}" type="hidden">
-                                <input name="id"  value="{{ $filiere->idFiliere }}" type="hidden">
-                                <a href=""><button type="submit" style="background: none; border:none" ><span style="cursor: pointer">{{ $filiere->nomFiliere }}</span></button></a>
+                                <input name="nom" value="{{ $filiere->nom_filiere }}" type="hidden">
+                                <input name="id"  value="{{ $filiere->id }}" type="hidden">
+                                <a href=""><button type="submit" style="background: none; border:none" ><span style="cursor: pointer">{{ $filiere->nom_filiere }}</span></button></a>
                             </li>
                         </form>
                     @endforeach

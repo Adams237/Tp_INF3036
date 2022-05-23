@@ -15,7 +15,8 @@ class FormFiliere extends Component
     public $spec;
     public $idt;
     public $niveau;
-    public $effectif = 0;
+    public $niveaux;
+    public $effectifs = 0;
     public $choixSpec;
 
     public function updatedChoixSpec(){
@@ -23,24 +24,19 @@ class FormFiliere extends Component
         // $this->specialites = DB::table('specialites')->where('idFiliere', '4')->get();
         // dd($this->identifiant);
 
-        $this->spec = DB::table('specialites')->where('nomSpec', $this->choixSpec)->get();
-        // dd($this->spec[0]);
-        if($this->niveau >= 3){
-            if(!empty($this->spec)){
-                $this->effectif = $this->spec[0]->effectifSpec;
-            }      
-        }
-        else{
-            $this->effectif=0;
-        }
+        $this->spec = DB::table('specialites')->where('nom_spec', $this->choixSpec)->get();//recupérer l'id de la spécialité
+        $this->effectifs =DB::table('niveaux')->where('id_spec', $this->spec[0]->id)->where('niveau', $this->niveau)->get();//recupérer l'effectif du nieau
+        $this->niveaux = DB::table('niveaux')->where('id_spec', $this->spec[0]->id)->where('niveau', $this->niveau)->get();
+        // dd($this->effectif[0]->effectif);
         // dd($this->spec[0]->effectifSpec);
     }
 
     public function updatedNiveau(){
-        if($this->niveau >= 3){
-            if(!empty($this->spec)){
-                $this->effectif = $this->spec[0]->effectifSpec;
-            }      
+        if($this->niveau < 3){
+            $identifiant = DB::table('filieres')->where('nom_filiere', $this->filiere)->value('id');
+            // dd($identifiant);
+            $this->effectifs = DB::table('niveaux')->where('id_filiere', $identifiant)->where('niveau', $this->niveau)->value('effectif'); 
+            $this->niveaux = DB::table('niveaux')->where('id_filiere', $identifiant)->where('niveau', $this->niveau)->get();    
         }
         else{
             $this->effectif=0;
@@ -52,7 +48,7 @@ class FormFiliere extends Component
         $this->idt = $request->id;
     }
 
-    public function render(Request $request)
+    public function render()
     {
         // dd($this->nom);
        
@@ -60,7 +56,7 @@ class FormFiliere extends Component
         // $this->idt = '4';
         // $this->spec = DB::table('specialites')->where('nomSpec', $this->specialite)->get();
 
-        $this->specialites = DB::table('specialites')->where('idFiliere', $this->idt)->get();
+        $this->specialites = DB::table('specialites')->where('id_filiere', $this->idt)->get();
         return view('livewire.form-filiere')->layout('layouts.app2');
     }
 }

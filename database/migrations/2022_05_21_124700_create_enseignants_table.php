@@ -14,10 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('enseignants', function (Blueprint $table) {
-            $table->unsignedBigInteger('idEns')->autoIncrement();
-            $table->string('nomEns', 50);
-            $table->unsignedBigInteger('idDep');
-            $table->foreign('idDep')->references('idDep')->on('departements');
+            $table->id();
+            $table->string('nom_ens', 50);
+            $table->string('prenom_ens', 50)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->date('date_naiss')->nullable();
+            $table->unsignedBigInteger('id_dep');
+            $table->foreign('id_dep')->references('id')->on('departements');
             $table->timestamps();
         });
     }
