@@ -50,22 +50,34 @@ class PlanifierCours extends Component
     }
 
     public function updatedHoraire1(){
-        //recupère l'identifiant d
-        $this->id_salle = DB::table('cours')->where('jour',  $this->jour1)->where('heure_debut', $this->horaire1)->value('id_salle');
-        $this->id_ense = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->where('id_salle',$this->id_salle)->value('id_ense');
-        if(!empty($this->id_salle)){
-            $this->salles1 = DB::table('salles')->where('id','<>', $this->id_salle)->get();
+        //recupère l'identifiant de la salle occupé
+        $this->id_salle = DB::table('cours')->where('jour',  $this->jour1)->where('heure_debut', $this->horaire1)->get();
+        
+        //recupérer l'identifiant de l'enseignant occupé par jour et par salle
+        $this->id_ense = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->value('id_ense');
+        if(count($this->id_salle)!=0){ 
+            //enlever la salle occupée de la liste des salles à afficher
+            $this->salles1 = DB::table('salles')->join('cours', function($join){
+                $join->on('salles.id', '=', 'cours.id_salle')
+                    ->where('cours.jour', '=', $this->jour1)
+                    ->where('cours.heure_debut', '=', $this->horaire1);
+            })->get();
+
+            
+            
         }
         if(!empty($this->id_ense)){
+            //enlever l'enseignant occupé de la liste des enseignants à afficher
             $this->id_ens = DB::table('enseignements')->where('id', $this->id_ense)->value('id_ens');
             $this->enseignants1 = DB::table('enseignants')->where('id', '<>', $this->id_ens)->get();
         }
     }
 
     public function updatedJour1(){
-         
+         //recupérer la liste des salles occupées
         $this->id_salle = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->value('id_salle');
         if(!empty($this->id_salle)){
+            //afficher les salles libre
             $this->salles = DB::table('salles')->where('id','<>', $this->id_salle)->get();
             dd($this->salles[0]);
         }
@@ -74,14 +86,23 @@ class PlanifierCours extends Component
 
     public function mount(Request $request)
     {
-        $this->id_salle = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->value('id_salle');
-        if(!empty($this->id_salle)){
-            $this->salles = DB::table('salles')->where('id','<>', $this->id_salle)->get();
+        //recupérer la liste des salles occupées
+        $this->id_salle = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->get();
+        if(count($this->id_salle)!=0){
+            //afficher les salles libres
+            for($i = 0; $i<count($this->id_salle); $i++){
+                $this->salles1 = DB::table('salles')->where('id','<>', $this->id_salle[$i]->id)->get();
+            }
         }
+        //afficher les salles
         $this->salles = DB::table('salles')->get();
+        //recupére le nom de la filiére
         $this->filiere = $request->filiere;
+        //recupére le niveau
         $this->niveau = $request->niveau;
+        //recupérer la spécialite
         $this->specialites = $request->choixSpec;
+        //recupérer l'effectif
         $this->effectif = $request->effectif;
         $spec = DB::table('specialites')->where('nom_spec', $this->specialites)->get();
         $this->eff = DB::table('niveaux')->where('id_spec', $spec[0]->id)->where('niveau', $this->niveau)->get();
@@ -92,20 +113,37 @@ class PlanifierCours extends Component
     }
     public function render()
     {
-        $this->id_salle = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->value('id_salle');
-        if(!empty($this->id_salle)){
-            $this->salles1 = DB::table('salles')->where('id','<>', $this->id_salle)->get();
+        //recupérer la liste des salles occupées
+        $this->id_salle = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->get();
+        if(count($this->id_salle)!=0){
+            // dd(count($this->id_salle));
+            //afficher les salles libres
+            // for($i = 0; $i<count($this->id_salle);$i++){
+            //     $this->salles1 = DB::table('salles')->where('id','<>', $this->id_salle[$i]->id_salle)->where('id','<>', $this->id_salle[$i+1]->id_salle)->get();
+            //     break;
+            // }              
+            $this->salles1 = DB::table('salles')->join('cours', function($join){
+                $join->on('salles.id', '=', 'cours.id_salle')
+                    ->where('cours.jour', '=', $this->jour1)
+                    ->where('cours.heure_debut', '= ', $this->horaire1);
+                    
+            })->select('salles.*')->get();
         }
         else{
+            //afficher les salles
             $this->salles1 = DB::table('salles')->get();
         }
-        
-        $this->id_ense = DB::table('cours')->where('jour', $this->jour1)->where('heure_debut', $this->horaire1)->where('id_salle',$this->id_salle)->value('id_ense');
+        //recupérer les enseignants occupés
+        if(count($this->id_salle)==0){
+            $this->id_ense = DB::table('cours')->value('id_ense');
+        }
         if(!empty($this->id_ense)){
+            //afficher les salles libres
             $this->id_ens = DB::table('enseignements')->where('id', $this->id_ense)->value('id_ens');
             $this->enseignants1 = DB::table('enseignants')->where('id', '<>', $this->id_ens)->get();
         }
         else{
+            //afficher les salles
             $this->enseignants1 = DB::table('enseignants')->get();
         }
         $spec = DB::table('specialites')->where('nom_spec', $this->specialites)->get();

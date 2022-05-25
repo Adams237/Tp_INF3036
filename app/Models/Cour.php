@@ -12,7 +12,7 @@ class Cour extends Model
     use HasFactory;
 
     public function enseignement(){
-        return $this->belongsTo(Enseignement::class);
+        return $this->belongsTo(Enseignement::class, 'id_ense');
     }
     public function salle(){
         return $this->belongsTo(Salle::class);
