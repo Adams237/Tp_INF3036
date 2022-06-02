@@ -11,6 +11,7 @@ use App\Http\Livewire\EmploiDeTemps;
 use App\Http\Livewire\EmploiDeTemps2;
 use App\Http\Livewire\Enseignant;
 use App\Http\Livewire\PlanifierCours;
+use App\Http\Livewire\Salle;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 use Laravel\Jetstream\Rules\Role;
@@ -45,6 +46,8 @@ Route::get('/formFiliere', FormFiliere::class);
 Route::post('/formFiliere', FormFiliere::class)->name('formFiliere');
 Route::get('/enseignant', Enseignant::class);
 Route::post('/enseignant', Enseignant::class)->name('enseignant');
+Route::get('/salle', Salle::class);
+Route::post('/salle', Salle::class)->name('salle');
 
 Route::middleware([
     'auth:sanctum',

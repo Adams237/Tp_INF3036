@@ -9,6 +9,7 @@ class Sidebar extends Component
 {
     public $filieres;
     public $enseignants;
+    public $salles;
 
     public function afficher(){
         $filiere = DB::table('filieres')->where('nom_filiere', 'CHIMIE')->value('id');
@@ -30,7 +31,9 @@ class Sidebar extends Component
     public function render()
     {
         $this->filieres = DB::table('filieres')->get(); 
-        $this->enseignants = DB::table('enseignants')->orderBy('nom_ens')->get();  
+        $this->enseignants = DB::table('enseignants')->orderBy('nom_ens')->get();
+        $this->salles = DB::table('salles')->orderBy('nom_salle')->get();
+
         return view('livewire.sidebar');
     }
 }

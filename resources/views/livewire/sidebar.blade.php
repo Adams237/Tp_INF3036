@@ -54,6 +54,22 @@
                 </ul>
             </li>
             <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>emplois de temps salles</a>
+                <ul class="sub-menu children dropdown-menu">
+                @foreach ($salles as $salle )
+                        
+                        <form method="POST" action="{{ route('salle') }}">
+                            @csrf
+                            <li >
+                                <input  name="nom_salle" value="{{ $salle->nom_salle }}" type="hidden" >
+                                <input  name="id_salle"  value="{{ $salle->id }}" type="hidden">
+                                <a href=""><button type="submit" style="background: none; border:none" ><span style="cursor: pointer">{{ $salle->nom_salle }}</span></button></a>
+                            </li>
+                        </form>
+                    @endforeach </form>
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                 <ul class="sub-menu children dropdown-menu">
                     <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
