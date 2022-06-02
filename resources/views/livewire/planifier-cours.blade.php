@@ -115,15 +115,23 @@
                                 </select>
                                 <select wire:model="salle2" name="salle2" id="salle2"class="form-control bg-soft-light border-light @error('salle2') is-invalid @enderror"  required >
                                     <option value="">salle/capacité</option>
-                                    @foreach($salles2 as $salle)
-                                        <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
-                                    @endforeach
+                                    @if(!empty($salles2))
+                                        @foreach($salles2 as $salle)
+                                            <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value="">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                                 <select wire:model="enseignant2" name="enseignant2" id="enseignant2"class="form-control bg-soft-light border-light @error('enseignant2') is-invalid @enderror"   required >
                                     <option value="">enseignant</option>
-                                    @foreach($enseignants2 as $enseignant)
-                                        <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
-                                    @endforeach
+                                    @if(!empty($enseignants2))
+                                        @foreach($enseignants2 as $enseignant)
+                                            <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value="">changer de jour ou d'heure</option>
+                                    @endif
                                 </select>
                             
                             @error('niveau')
@@ -170,15 +178,24 @@
                                 </select>
                                 <select wire:model="salle3" name="salle3" id="salle3"class="form-control bg-soft-light border-light @error('salle3') is-invalid @enderror"  required >
                                     <option value="">salle/capacité</option>
-                                    @foreach($salles3 as $salle)
-                                        <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
-                                    @endforeach
+                                    @if(!empty($salles3))
+                                        @foreach($salles3 as $salle)
+                                            <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                                 <select wire:model="enseignant3" name="enseignant3" id="enseignant3"class="form-control bg-soft-light border-light @error('enseignant3') is-invalid @enderror"   required >
                                     <option value="">enseignant</option>
-                                    @foreach($enseignants3 as $enseignant)
-                                        <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
-                                    @endforeach
+                                    @if(!empty($enseignants3))
+                                        @foreach($enseignants3 as $enseignant)
+                                            <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
+
                                 </select>
                             
                             @error('niveau')
@@ -225,15 +242,23 @@
                                 </select>
                                 <select wire:model="salle4" name="salle4" id="salle4"class="form-control bg-soft-light border-light @error('salle4') is-invalid @enderror"  required >
                                     <option value="">salle/capacité</option>
-                                    @foreach($salles4 as $salle)
-                                        <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
-                                    @endforeach
+                                    @if(!empty($salles4))
+                                        @foreach($salles4 as $salle)
+                                            <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                                 <select wire:model="enseignant4" name="enseignant4" id="enseignant4"class="form-control bg-soft-light border-light @error('enseignant4') is-invalid @enderror"   required >
                                     <option value="">enseignant</option>
-                                    @foreach($enseignants4 as $enseignant)
-                                        <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
-                                    @endforeach
+                                    @if(!empty($enseignants4))
+                                        @foreach($enseignants4 as $enseignant)
+                                            <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                             
                             @error('niveau')
@@ -280,15 +305,23 @@
                                 </select>
                                 <select wire:model="salle5" name="salle5" id="salle5"class="form-control bg-soft-light border-light @error('salle5') is-invalid @enderror"  required >
                                     <option value="">salle/capacité</option>
-                                    @foreach($salles5 as $salle)
-                                        <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
-                                    @endforeach
+                                    @if(!empty($salles5))
+                                        @foreach($salles5 as $salle)
+                                            <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                                 <select wire:model="enseignant5" name="enseignant5" id="enseignant5"class="form-control bg-soft-light border-light @error('enseignant5') is-invalid @enderror"   required >
                                     <option value="">enseignant</option>
-                                    @foreach($enseignants5 as $enseignant)
-                                        <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
-                                    @endforeach
+                                    @if(!empty($enseignants5))
+                                        @foreach($enseignants5 as $enseignant)
+                                            <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                             
                             @error('niveau')
@@ -335,15 +368,23 @@
                                 </select>
                                 <select wire:model="salle6" name="salle6" id="salle6"class="form-control bg-soft-light border-light @error('salle6') is-invalid @enderror"  required >
                                     <option value="">salle/capacité</option>
-                                    @foreach($salles6 as $salle)
-                                        <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
-                                    @endforeach
+                                    @if(!empty($salles6))
+                                        @foreach($salles6 as $salle)
+                                            <option value="{{ $salle->id }}">{{ $salle->nom_salle }}: {{ $salle->capacite }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                                 <select wire:model="enseignant6" name="enseignant6" id="enseignant6"class="form-control bg-soft-light border-light @error('enseignant6') is-invalid @enderror"   required >
                                     <option value="">enseignant</option>
-                                    @foreach($enseignants6 as $enseignant)
-                                        <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
-                                    @endforeach
+                                    @if(!empty($enseignants6))
+                                        @foreach($enseignants6 as $enseignant)
+                                            <option value="{{ $enseignant->id }}">{{ $enseignant->nom_ens }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value = "">changer le jour ou l'heure</option>
+                                    @endif
                                 </select>
                             
                             @error('niveau')
