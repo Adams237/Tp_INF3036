@@ -11,7 +11,7 @@ class Enseignant extends Component
     public $enseignant;
     public $id_ens;
     public $id_ense;
-    public $liste;
+    public $liste=[];
     public $i;
     // variable de lundi
     public $LUE7;
@@ -143,303 +143,307 @@ class Enseignant extends Component
     }
     
     public function render()
-    { 
-        for($i=0; $i<count($this->liste); $i++){
-            if($this->liste[$i][0]->jour == "lundi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->LUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->LN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->LF7 = DB::table('filiere')->where('id', $filiere)->value('nom_filiere');
+    {
+        
+        if(count($this->liste)!=0){
+                for($i=0; $i<count($this->liste); $i++){
+                    if($this->liste[$i][0]->jour == "lundi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->LUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->LN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->LF7 = DB::table('filiere')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->LUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->LN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->LF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->LUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->LN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->LF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->LUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->LN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->LF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->LUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->LN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->LF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->LUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->LN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->LF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->LUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->LN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->LF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->LUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->LN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->LF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->LUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->LN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->LF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "mardi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->MAUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MAN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MAF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "mardi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->MAUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MAN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MAF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->MAUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MAN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MAF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->MAUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MAN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MAF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->MAUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MAN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MAF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->MAUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MAN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MAF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->MAUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MAN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MAF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->MAUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MAN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MAF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->MAUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MAN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MAF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->MAUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MAN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MAF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "mercredi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->MUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "mercredi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->MUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->MUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->MUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->MUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->MUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->MUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->MUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->MUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->MN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->MF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->MUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->MN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->MF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "jeudi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->JUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->JN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->JF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "jeudi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->JUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->JN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->JF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->JUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->JN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->JF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->JUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->JN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->JF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->JUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->JN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->JF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->JUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->JN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->JF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->JUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->JN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->JF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->JUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->JN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->JF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->JUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->JN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->JF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->JUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->JN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->JF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "vendredi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->VUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->VN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->VF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "vendredi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->VUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->VN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->VF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->VUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->VN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->VF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->VUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->VN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->VF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->VUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->VN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->VF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->VUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->VN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->VF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->VUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->VN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->VF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->VUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->VN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->VF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->VUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->VN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->VF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->VUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->VN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->VF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "samedi"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->SUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->SN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->SF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "samedi"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->SUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->SN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->SF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->SUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->SN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->SF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->SUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->SN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->SF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->SUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->SN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->SF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->SUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->SN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->SF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->SUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->SN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->SF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->SUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->SN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->SF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->SUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->SN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->SF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->SUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->SN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->SF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-            }
-            if($this->liste[$i][0]->jour == "dimanche"){
-                if($this->liste[$i][0]->heure_debut == "7H"){
-                    $this->DUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->DN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->DF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                    }
+                    if($this->liste[$i][0]->jour == "dimanche"){
+                        if($this->liste[$i][0]->heure_debut == "7H"){
+                            $this->DUE7 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->DN7 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->DF7 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "10H05"){
-                    $this->DUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->DN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->DF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "10H05"){
+                            $this->DUE10 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->DN10 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->DF10 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "13H05"){
-                    $this->DUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->DN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->DF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "13H05"){
+                            $this->DUE13 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->DN13 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->DF13 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "16H05"){
-                    $this->DUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->DN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->DF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "16H05"){
+                            $this->DUE16 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->DN16 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->DF16 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
-                }
-                if($this->liste[$i][0]->heure_debut == "19H05"){
-                    $this->DUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
-                    $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
-                    $this->DN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
-                    $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
-                    $this->DF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
+                        }
+                        if($this->liste[$i][0]->heure_debut == "19H05"){
+                            $this->DUE19 = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('code_ue');
+                            $niveau = DB::table('ues')->where('id', $this->liste[$i][0]->id_ue)->value('id_niveau');
+                            $this->DN19 = DB::table('niveaux')->where('id', $niveau)->value('niveau');
+                            $filiere = DB::table('niveaux')->where('id', $niveau)->value('id_filiere');
+                            $this->DF19 = DB::table('filieres')->where('id', $filiere)->value('nom_filiere');
 
+                        }
+                    }
                 }
-            }
-        }
+        } 
+        
         
 
         // dd($this->enseignants);

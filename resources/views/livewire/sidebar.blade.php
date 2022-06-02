@@ -70,6 +70,22 @@
                 </ul>
             </li>
             <li class="menu-item-has-children dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Modifier</a>
+                <ul class="sub-menu children dropdown-menu">
+                    @foreach ($filieres as $filiere )
+                        
+                        <form method="POST" action="{{ route('choix') }}">
+                            @csrf
+                            <li >
+                                <input name="nom" value="{{ $filiere->nom_filiere }}" type="hidden">
+                                <input name="id"  value="{{ $filiere->id }}" type="hidden">
+                                <a href=""><button type="submit" style="background: none; border:none" ><span style="cursor: pointer">{{ $filiere->nom_filiere }}</span></button></a>
+                            </li>
+                        </form>
+                    @endforeach
+                </ul>
+            </li>
+            <li class="menu-item-has-children dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
                 <ul class="sub-menu children dropdown-menu">
                     <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>

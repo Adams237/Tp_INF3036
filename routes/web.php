@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Afficher;
 use App\Http\Livewire\AfficherEmploiDeTemps;
+use App\Http\Livewire\ChoixModif;
 use App\Http\Livewire\Form;
 use App\Http\Livewire\Test;
 use App\Http\Livewire\Dashbord;
@@ -48,6 +49,8 @@ Route::get('/enseignant', Enseignant::class);
 Route::post('/enseignant', Enseignant::class)->name('enseignant');
 Route::get('/salle', Salle::class);
 Route::post('/salle', Salle::class)->name('salle');
+Route::get('/choixModif', ChoixModif::class);
+Route::post('/choixModif', ChoixModif::class)->name('choix');
 
 Route::middleware([
     'auth:sanctum',

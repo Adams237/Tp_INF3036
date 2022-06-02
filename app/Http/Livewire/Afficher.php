@@ -12,12 +12,48 @@ class Afficher extends Component
     public $filiere;   
     public $specialite;
     public $id_filiere;
-    public $E1 = [];
-    public $E2 = [];
-    public $E3 = [];
-    public $E4 = [];
-    public $E5 = [];
-    public $E6 = [];
+    public $E1 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E2 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E3 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E4 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E5 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E6 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
     public $E = ['e1' => null,
                  'e2' =>null,
                  'e3' => null,
@@ -138,7 +174,8 @@ class Afficher extends Component
     public $DE19;
     public $DS19;
     public $id_niveau;
-    
+    public $ense = [];
+    public $id_ens = [];
 
     public function mount(Request $request){
         $this->filiere = $request->filiere;
@@ -146,58 +183,66 @@ class Afficher extends Component
         $this->id_filiere = $request->id_filiere;
         $this->id_niveau = DB::table('niveaux')->where('niveau', $this->niveau)->where('id_filiere', $this->id_filiere)->value('id');
         // dd($this->id_niveau);
-        $ense = DB::table('ues')->join('enseignement_ue', function($join){
+        $this->ense = DB::table('ues')->join('enseignement_ue', function($join){
             $join->on('enseignement_ue.id_ue', '=', 'ues.id')
             ->where('ues.id_niveau', '=', $this->id_niveau);
         } )->get();
-        for($i=0; $i < count($ense); $i++){
-            $id_ens[$i] = DB::table('enseignements')->where('id', $ense[$i]->id_ense)->get();
+        if(count($this->ense)!=0){
+            for($i=0; $i < count($this->ense); $i++){
+                $this->id_ens[$i] = DB::table('enseignements')->where('id', $this->ense[$i]->id_ense)->get();
+            }
+            if(count($this->id_ens)!=0){
+                for($i=0; $i< count($this->id_ens); $i++){
+                    $id_cours[$i] = DB::table('cours')->where('id_ense', $this->id_ens[$i][0]->id)->get();
+                }
+                $this->E1 = [
+                    'code_ue' => $this->ense[0]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[0][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[0][0]->jour,
+                    'heure' => $id_cours[0][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[0][0]->id_salle)->value('nom_salle')
+                ];
+                $this->E2 = [
+                    'code_ue' => $this->ense[1]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[1][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[1][0]->jour,
+                    'heure' => $id_cours[1][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[1][0]->id_salle)->value('nom_salle')
+                ];
+                $this->E3 = [
+                    'code_ue' => $this->ense[2]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[2][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[2][0]->jour,
+                    'heure' => $id_cours[2][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[2][0]->id_salle)->value('nom_salle')
+                ];
+                $this->E4 = [
+                    'code_ue' => $this->ense[3]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[3][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[3][0]->jour,
+                    'heure' => $id_cours[3][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[3][0]->id_salle)->value('nom_salle')
+                ];
+                $this->E5 = [
+                    'code_ue' => $this->ense[4]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[4][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[4][0]->jour,
+                    'heure' => $id_cours[4][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[4][0]->id_salle)->value('nom_salle')
+                ];
+                $this->E6 = [
+                    'code_ue' => $this->ense[5]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[5][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[5][0]->jour,
+                    'heure' => $id_cours[5][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[5][0]->id_salle)->value('nom_salle')
+                ];
+            }
+        
         }
-        for($i=0; $i< count($id_ens); $i++){
-            $id_cours[$i] = DB::table('cours')->where('id_ense', $id_ens[$i][0]->id)->get();
-        }
-        $this->E1 = [
-            'code_ue' => $ense[0]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[0][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[0][0]->jour,
-            'heure' => $id_cours[0][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[0][0]->id_salle)->value('nom_salle')
-        ];
-        $this->E2 = [
-            'code_ue' => $ense[1]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[1][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[1][0]->jour,
-            'heure' => $id_cours[1][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[1][0]->id_salle)->value('nom_salle')
-        ];
-        $this->E3 = [
-            'code_ue' => $ense[2]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[2][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[2][0]->jour,
-            'heure' => $id_cours[2][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[2][0]->id_salle)->value('nom_salle')
-        ];
-        $this->E4 = [
-            'code_ue' => $ense[3]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[3][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[3][0]->jour,
-            'heure' => $id_cours[3][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[3][0]->id_salle)->value('nom_salle')
-        ];
-        $this->E5 = [
-            'code_ue' => $ense[4]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[4][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[4][0]->jour,
-            'heure' => $id_cours[4][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[4][0]->id_salle)->value('nom_salle')
-        ];
-        $this->E6 = [
-            'code_ue' => $ense[5]->code_ue,
-            'enseignant' => DB::table('enseignants')->where('id', $id_ens[5][0]->id_ens)->value('nom_ens'),
-            'jour' => $id_cours[5][0]->jour,
-            'heure' => $id_cours[5][0]->heure_debut,
-            'salle' => DB::table('salles')->where('id', $id_cours[5][0]->id_salle)->value('nom_salle')
-        ];
+        
+        
+        
 
         $this->E = [
             'e1' => $this->E1,
