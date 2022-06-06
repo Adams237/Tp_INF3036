@@ -70,10 +70,9 @@
                 </ul>
             </li>
             <li class="menu-item-has-children dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Modifier</a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Supprimer emplou de temps</a>
                 <ul class="sub-menu children dropdown-menu">
                     @foreach ($filieres as $filiere )
-                        
                         <form method="POST" action="{{ route('choix') }}">
                             @csrf
                             <li >

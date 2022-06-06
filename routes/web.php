@@ -11,6 +11,7 @@ use App\Http\Livewire\FormFiliere;
 use App\Http\Livewire\EmploiDeTemps;
 use App\Http\Livewire\EmploiDeTemps2;
 use App\Http\Livewire\Enseignant;
+use App\Http\Livewire\Modification;
 use App\Http\Livewire\PlanifierCours;
 use App\Http\Livewire\Salle;
 use Illuminate\Support\Facades\Route;
@@ -51,6 +52,8 @@ Route::get('/salle', Salle::class);
 Route::post('/salle', Salle::class)->name('salle');
 Route::get('/choixModif', ChoixModif::class);
 Route::post('/choixModif', ChoixModif::class)->name('choix');
+Route::get('/modification', Modification::class);
+Route::post('/modification', Modification::class)->name('modification');
 
 Route::middleware([
     'auth:sanctum',

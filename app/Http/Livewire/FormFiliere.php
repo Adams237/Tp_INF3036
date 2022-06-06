@@ -20,15 +20,11 @@ class FormFiliere extends Component
     public $choixSpec;
 
     public function updatedChoixSpec(){
-        // $this->spec = Specialite::where('nomSpec', $this->specialite)->get();
-        // $this->specialites = DB::table('specialites')->where('idFiliere', '4')->get();
-        // dd($this->identifiant);
 
         $this->spec = DB::table('specialites')->where('nom_spec', $this->choixSpec)->get();//recupérer l'id de la spécialité
         $this->effectifs =DB::table('niveaux')->where('id_spec', $this->spec[0]->id)->where('niveau', $this->niveau)->get();//recupérer l'effectif du nieau
         $this->niveaux = DB::table('niveaux')->where('id_spec', $this->spec[0]->id)->where('niveau', $this->niveau)->get();
-        // dd($this->effectif[0]->effectif);
-        // dd($this->spec[0]->effectifSpec);
+        
     }
 
     public function updatedNiveau(){
@@ -50,11 +46,6 @@ class FormFiliere extends Component
 
     public function render()
     {
-        // dd($this->nom);
-       
-        
-        // $this->idt = '4';
-        // $this->spec = DB::table('specialites')->where('nomSpec', $this->specialite)->get();
 
         $this->specialites = DB::table('specialites')->where('id_filiere', $this->idt)->get();
         return view('livewire.form-filiere')->layout('layouts.app2');

@@ -2,9 +2,10 @@
     <div class="card">
         <div class="card-body p-4">
             <div class="p-3">
-                <form method="POST" action="{{ route('planifier') }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('modification') }}" enctype="multipart/form-data">
                     {{ $filiere }}
                     <input type="hidden" name="filiere" value="{{ $filiere }}">
+                    <input type="hidden" name="id_filiere" value="{{ $id_filiere }}">
                     @csrf
                     <div class="form-group">
                         <label>{{ __("Niveau") }}</label>
