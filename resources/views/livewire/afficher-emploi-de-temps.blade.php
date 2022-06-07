@@ -30,7 +30,26 @@
                             @enderror
                         </div>
                     </div>
-                    
+                    @if ($niveau>=3)
+                        <div class="form-group">
+                            <label>{{ __("Specialite") }}</label>
+                            <div class="input-group mb-3 bg-soft-light input-group-lg rounded-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text border-light text-muted">
+                                        <i class="ri-mail-line"></i>
+                                    </span>
+                                </div>
+                                
+                                    <select wire:model="choixSpec" name="choixSpec" id="choixSpec" class="form-control bg-soft-light border-light @error('specialite') is-invalid @enderror"  required >
+                                         <option value="">choisir spécialite</option> 
+                                        @foreach ($specialites as $specialite )
+                                            <option value="{{ $specialite->nom_spec }}">{{ $specialite->nom_spec }}</option>
+                                        @endforeach
+                                    </select> 
+                                
+                            </div>
+                        </div>
+                    @endif
                     
                     @if(empty($niveau))
                         <div>

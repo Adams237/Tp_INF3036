@@ -17,12 +17,18 @@ class EmploiDeTemps extends Component
     public $E4 = [];
     public $E5 = [];
     public $E6 = [];
+    public $E7 = [];
+    public $E8 = [];
+    public $E9 = [];
     public $E = ['e1' => null,
                  'e2' =>null,
                  'e3' => null,
                  'e4' => null,
                  'e5' => null,
-                 'e6' =>null
+                 'e6' =>null,
+                 'e7' =>null,
+                 'e8' =>null,
+                 'e9' =>null
                 ];
     public $L7;
     public $L10;
@@ -89,18 +95,27 @@ class EmploiDeTemps extends Component
         $this->id4 = $request->matiere4;
         $this->id5 = $request->matiere5;
         $this->id6 = $request->matiere6;
+        $this->id7 = $request->matiere7;
+        $this->id8 = $request->matiere8;
+        $this->id9 = $request->matiere9;
         $this->id_ens1 = $request->enseignant1;
         $this->id_ens2 = $request->enseignant2;
         $this->id_ens3 = $request->enseignant3;
         $this->id_ens4 = $request->enseignant4;
         $this->id_ens5 = $request->enseignant5;
         $this->id_ens6 = $request->enseignant6;
+        $this->id_ens7 = $request->enseignant7;
+        $this->id_ens8 = $request->enseignant8;
+        $this->id_ens9 = $request->enseignant9;
         $this->id_salle1 = $request->salle1;
         $this->id_salle2 = $request->salle2;
         $this->id_salle3 = $request->salle3;
         $this->id_salle4 = $request->salle4;
         $this->id_salle5 = $request->salle5;
         $this->id_salle6 = $request->salle6;
+        $this->id_salle7 = $request->salle7;
+        $this->id_salle8 = $request->salle8;
+        $this->id_salle9 = $request->salle9;
         $this->E1 = ['code_ue' => DB::table('ues')->where('id', $request->matiere1)->value('code_ue'),
                        'jour'=> $request->jour1,
                        'horaire' => $request->horaire1,
@@ -137,63 +152,102 @@ class EmploiDeTemps extends Component
                        'salle' => DB::table('salles')->where('id', $request->salle6)->value('nom_salle'),
                        'enseignant' => DB::table('enseignants')->where('id', $request->enseignant6)->value('nom_ens')
                     ];
+        $this->E7 = ['code_ue' => DB::table('ues')->where('id', $request->matiere7)->value('code_ue'),
+                    'jour'=> $request->jour7,
+                    'horaire' => $request->horaire7,
+                    'salle' => DB::table('salles')->where('id', $request->salle7)->value('nom_salle'),
+                    'enseignant' => DB::table('enseignants')->where('id', $request->enseignant7)->value('nom_ens')
+                 ];
+        $this->E8 = ['code_ue' => DB::table('ues')->where('id', $request->matiere8)->value('code_ue'),
+                 'jour'=> $request->jour8,
+                 'horaire' => $request->horaire8,
+                 'salle' => DB::table('salles')->where('id', $request->salle8)->value('nom_salle'),
+                 'enseignant' => DB::table('enseignants')->where('id', $request->enseignant8)->value('nom_ens')
+              ];
+        $this->E9 = ['code_ue' => DB::table('ues')->where('id', $request->matiere9)->value('code_ue'),
+              'jour'=> $request->jour9,
+              'horaire' => $request->horaire9,
+              'salle' => DB::table('salles')->where('id', $request->salle9)->value('nom_salle'),
+              'enseignant' => DB::table('enseignants')->where('id', $request->enseignant9)->value('nom_ens')
+           ];
 
         $this->E = ['e1' => $this->E1,
                     'e2' => $this->E2,
                     'e3' => $this->E3,
                     'e4' => $this->E4,
                     'e5' => $this->E5,
-                    'e6'=> $this->E6
+                    'e6'=> $this->E6,
+                    'e7'=> $this->E7,
+                    'e8'=> $this->E8,
+                    'e9'=> $this->E9
                     ];
     }
    
     
     public function envoyer(Request $request){
-        $verifier = DB::table('enseignement_ue')->where('id_ue', $request->matiere1)->value('id');
+        $id_matiere = DB::table('ues')->where('code_ue',$this->E1['code_ue'])->value('id');
+        $verifier = DB::table('enseignement_ue')->where('id_ue', $id_matiere)->value('id');
         // dd($verifier);
         if(!empty($verifier)){
             dd('existe deja');
         }
         else{
             $id_filiere = DB::table('filieres')->where('nom_filiere', $this->filiere)->value('id');
-            if(!empty($this->E1)){
+            if(!empty($this->E1['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E1['horaire'], 'id_ens' => $this->id_ens1, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id1]);
                 DB::table('cours')->insert(['jour' => $this->E1['jour'], 'heure_debut' => $this->E1['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle1]);
             }
-            if(!empty($this->E2)){
+            if(!empty($this->E2['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E2['horaire'], 'id_ens' => $this->id_ens2, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id2]);
                 DB::table('cours')->insert(['jour' => $this->E2['jour'], 'heure_debut' => $this->E2['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle2]);
             }
-            if(!empty($this->E3)){
+            if(!empty($this->E3['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E3['horaire'], 'id_ens' => $this->id_ens3, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id3]);
                 DB::table('cours')->insert(['jour' => $this->E3['jour'], 'heure_debut' => $this->E3['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle3]);
             }
-            if(!empty($this->E4)){
+            if(!empty($this->E4['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E4['horaire'], 'id_ens' => $this->id_ens4, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id4]);
                 DB::table('cours')->insert(['jour' => $this->E4['jour'], 'heure_debut' => $this->E4['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle4]);
             }
-            if(!empty($this->E5)){
+            if(!empty($this->E5['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E5['horaire'], 'id_ens' => $this->id_ens5, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id5]);
                 DB::table('cours')->insert(['jour' => $this->E5['jour'], 'heure_debut' => $this->E5['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle5]);
             }
-            if(!empty($this->E6)){
+            if(!empty($this->E6['code_ue'])){
                 DB::table('enseignements')->insert(['heure_debut' => $this->E6['horaire'], 'id_ens' => $this->id_ens6, 'id_filiere' => $id_filiere]);
                 $id_ense = DB::table('enseignements')->max('id');
                 DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id6]);
                 DB::table('cours')->insert(['jour' => $this->E6['jour'], 'heure_debut' => $this->E6['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle6]);
             }
+            if(!empty($this->E7['code_ue'])){
+                DB::table('enseignements')->insert(['heure_debut' => $this->E7['horaire'], 'id_ens' => $this->id_ens7, 'id_filiere' => $id_filiere]);
+                $id_ense = DB::table('enseignements')->max('id');
+                DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id7]);
+                DB::table('cours')->insert(['jour' => $this->E7['jour'], 'heure_debut' => $this->E7['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle7]);
+            }
+            if(!empty($this->E8['code_ue'])){
+                DB::table('enseignements')->insert(['heure_debut' => $this->E8['horaire'], 'id_ens' => $this->id_ens8, 'id_filiere' => $id_filiere]);
+                $id_ense = DB::table('enseignements')->max('id');
+                DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id8]);
+                DB::table('cours')->insert(['jour' => $this->E8['jour'], 'heure_debut' => $this->E8['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle8]);
+            }
+            if(!empty($this->E9['code_ue'])){
+                DB::table('enseignements')->insert(['heure_debut' => $this->E9['horaire'], 'id_ens' => $this->id_ens9, 'id_filiere' => $id_filiere]);
+                $id_ense = DB::table('enseignements')->max('id');
+                DB::table('enseignement_ue')->insert(['id_ense' => $id_ense, 'id_ue' => $this->id9]);
+                DB::table('cours')->insert(['jour' => $this->E9['jour'], 'heure_debut' => $this->E9['horaire'], 'id_ense' => $id_ense, 'id_salle' => $this->id_salle9]);
+            }
         }
-        
     }
 
     public function render()

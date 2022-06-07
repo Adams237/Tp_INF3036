@@ -54,12 +54,36 @@ class Modification extends Component
         'enseignant' => null,
         'salle' => null
     ];
+    public $E7 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E8 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
+    public $E9 = [
+        'jour' => null,
+        'heure' => null,
+        'code_ue' =>null,
+        'enseignant' => null,
+        'salle' => null
+    ];
     public $E = ['e1' => null,
                  'e2' =>null,
                  'e3' => null,
                  'e4' => null,
                  'e5' => null,
-                 'e6' =>null
+                 'e6' =>null,
+                 'e7' =>null,
+                 'e8' =>null,
+                 'e9' =>null,
                 ];
     //variable du jour lundi
     public $L7;
@@ -176,12 +200,21 @@ class Modification extends Component
     public $id_niveau;
     public $ense = [];
     public $id_ens = [];
+    public $specialites;
 
     public function mount(Request $request){
+        $this->specialite = $request->choixSpec;
         $this->filiere = $request->filiere;
         $this->niveau = $request->niveau;
         $this->id_filiere = $request->id_filiere;
-        $this->id_niveau = DB::table('niveaux')->where('niveau', $this->niveau)->where('id_filiere', $this->id_filiere)->value('id');
+        if($this->niveau>=3){
+            $id_spec = DB::table('specialites')->where('nom_spec', $this->specialite)->value('id');
+            // dd($id_spec);
+            $this->id_niveau = DB::table('niveaux')->where('niveau', $this->niveau)->where('id_filiere', $this->id_filiere)->where('id_spec', $id_spec )->value('id'); 
+        }
+        else{
+            $this->id_niveau = DB::table('niveaux')->where('niveau', $this->niveau)->where('id_filiere', $this->id_filiere)->value('id');
+        }
         // dd($this->id_niveau);
         $this->ense = DB::table('ues')->join('enseignement_ue', function($join){
             $join->on('enseignement_ue.id_ue', '=', 'ues.id')
@@ -198,50 +231,89 @@ class Modification extends Component
                     $id_cours[$i] = DB::table('cours')->where('id_ense', $this->id_ens[$i][0]->id)->get();
                 }
                 // dd($id_cours);
-
-                $this->E1 = [
+                if(count($id_cours)>=1){
+                   $this->E1 = [
                     'code_ue' => $this->ense[0]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[0][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[0][0]->jour,
                     'heure' => $id_cours[0][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[0][0]->id_salle)->value('nom_salle')
-                ];
-
-                $this->E2 = [
+                    ]; 
+                }
+                if(count($id_cours)>=2){
+                    $this->E2 = [
                     'code_ue' => $this->ense[1]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[1][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[1][0]->jour,
                     'heure' => $id_cours[1][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[1][0]->id_salle)->value('nom_salle')
-                ];
-                $this->E3 = [
+                    ];
+                }
+
+                if(count($id_cours)>=3){
+                    $this->E3 = [
                     'code_ue' => $this->ense[2]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[2][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[2][0]->jour,
                     'heure' => $id_cours[2][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[2][0]->id_salle)->value('nom_salle')
                 ];
-                $this->E4 = [
+                }
+                if(count($id_cours)>=4){
+                   $this->E4 = [
                     'code_ue' => $this->ense[3]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[3][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[3][0]->jour,
                     'heure' => $id_cours[3][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[3][0]->id_salle)->value('nom_salle')
-                ];
-                $this->E5 = [
+                ]; 
+                }
+                if(count($id_cours)>=5){
+                    $this->E5 = [
                     'code_ue' => $this->ense[4]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[4][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[4][0]->jour,
                     'heure' => $id_cours[4][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[4][0]->id_salle)->value('nom_salle')
                 ];
-                $this->E6 = [
+                }
+                if(count($id_cours)>=6){
+                    $this->E6 = [
                     'code_ue' => $this->ense[5]->code_ue,
                     'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[5][0]->id_ens)->value('nom_ens'),
                     'jour' => $id_cours[5][0]->jour,
                     'heure' => $id_cours[5][0]->heure_debut,
                     'salle' => DB::table('salles')->where('id', $id_cours[5][0]->id_salle)->value('nom_salle')
                 ];
+                }
+                if(count($id_cours)>=7){
+                    $this->E7 = [
+                    'code_ue' => $this->ense[6]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[6][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[6][0]->jour,
+                    'heure' => $id_cours[6][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[6][0]->id_salle)->value('nom_salle')
+                ];
+                }
+                if(count($id_cours)>=8){
+                    $this->E8 = [
+                    'code_ue' => $this->ense[7]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[7][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[7][0]->jour,
+                    'heure' => $id_cours[7][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[7][0]->id_salle)->value('nom_salle')
+                ];
+                }
+                if(count($id_cours)>=9){
+                    $this->E9 = [
+                    'code_ue' => $this->ense[8]->code_ue,
+                    'enseignant' => DB::table('enseignants')->where('id', $this->id_ens[8][0]->id_ens)->value('nom_ens'),
+                    'jour' => $id_cours[8][0]->jour,
+                    'heure' => $id_cours[8][0]->heure_debut,
+                    'salle' => DB::table('salles')->where('id', $id_cours[8][0]->id_salle)->value('nom_salle')
+                ];
+                }
+                
             }
         
         }
@@ -255,7 +327,10 @@ class Modification extends Component
             'e3' => $this->E3,
             'e4' => $this->E4,
             'e5' => $this->E5,
-            'e6' => $this->E6
+            'e6' => $this->E6,
+            'e7' => $this->E7,
+            'e8' => $this->E8,
+            'e9' => $this->E9,
         ];
     }
 
@@ -267,6 +342,7 @@ class Modification extends Component
             // dd('suppression reussi');
 
         }
+        return view('livewire.modification')->layout('layouts.app2');
     }
 
     public function render()

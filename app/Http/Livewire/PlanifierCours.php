@@ -88,10 +88,197 @@ class PlanifierCours extends Component
     public $salles6;
     public $id_salle6;
 
+    //variable 7e enregistrement
+    public $matiere7;
+    public $mesues7;
+    public $horaire7;
+    public $salle7;
+    public $jour7;
+    public $enseignant7;
+    public $enseignants7;
+    public $salles7;
+    public $id_salle7;
+    public $nbre_ue7;
+
+
+    //variable 8e enregistrement
+    public $matiere8;
+    public $mesues8;
+    public $horaire8;
+    public $salle8;
+    public $jour8;
+    public $enseignant8;
+    public $enseignants8;
+    public $salles8;
+    public $id_salle8;
+    public $nbre_ue8;
+
+    //variabke 9e enregistrement
+    public $matiere9;
+    public $mesues9;
+    public $horaire9;
+    public $salle9;
+    public $jour9;
+    public $enseignant9;
+    public $enseignants9;
+    public $salles9;
+    public $id_salle9;
+    public $nbre_ue9;
+
+
+
+    //hook 9e enregistrement
+    public function updatedMatiere9(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedEnseignant9(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedHoraire9(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+        
+    }
+
+    public function updatedJour9(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedSalle9(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+
+    //hook du 8e enregistrement
+
+    public function updatedMatiere8(){
+        $this->mesues9 = DB::table('ues')->where('id_niveau', $this->eff[0]['id'])->where('id', '<>', $this->matiere8)->where('id', '<>', $this->matiere7)->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        $this->nbre_ue9 = count($this->mesues9);
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedEnseignant8(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedHoraire8(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+        
+    }
+
+    public function updatedJour8(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedSalle8(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    //hook 7e enregistrement
+    public function updatedMatiere7(){
+        $this->mesues8 = DB::table('ues')->where('id_niveau', $this->eff[0]['id'])->where('id', '<>', $this->matiere7)->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        $this->nbre_ue8 = count($this->mesues8);
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedEnseignant7(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedHoraire7(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+        
+    }
+
+    public function updatedJour7(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
+
+    public function updatedSalle7(){
+        if(count($this->id_salle1)!=0){
+            $this->i = 1;
+        }
+        else{
+            $this->i = 0;
+        }
+    }
 
     //hook du 6e enregistrement
 
     public function updatedMatiere6(){
+        $this->mesues7 = DB::table('ues')->where('id_niveau', $this->eff[0]['id'])->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        $this->nbre_ue7 = count($this->mesues7);
         if(count($this->id_salle1)!=0){
             $this->i = 1;
         }
@@ -376,7 +563,7 @@ class PlanifierCours extends Component
         if(count($this->id_salle1)!=0){
             
             if(count($this->id_salle1)==1){
-                dd('con1');
+                // dd('con1');
                 //enlever les salles occupées
                 $this->salles = DB::table('salles')->where('id', '<>', $this->id_salle1[0]->id_salle)->get();
                 //enlever l'enseignant occupé de la liste des enseignants à afficher
@@ -388,7 +575,7 @@ class PlanifierCours extends Component
                 $this->enseignants = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ense)->get();
             }
             if(count($this->id_salle1)==2){
-                dd('con2');
+                // dd('con2');
                 
                 //enlever les salles occupées
                 $this->salles = DB::table('salles')->where('id', '<>', $this->id_salle1[0]->id_salle)->where('id', '<>', $this->id_salle1[1]->id_salle)->get();
@@ -1316,6 +1503,397 @@ class PlanifierCours extends Component
                 }
             }
         }
+
+        //on travaille sur le 7e enregistrement
+
+        if(!empty($this->jour6) and !empty($this->horaire6)){
+            // dd($this->jour7);
+            if(($this->jour7 == $this->jour4 and $this->horaire7 == $this->horaire4) or ($this->jour7 ==$this->jour3 and $this->horaire7 ==$this->horaire3) or ($this->jour7 ==$this->jour2 and $this->horaire7 ==$this->horaire2) or ($this->jour7 ==$this->jour1 and $this->horaire7 ==$this->horaire1) or ($this->jour7 ==$this->jour5 and $this->horaire7 ==$this->horaire5) or ($this->jour7 == $this->jour6 and $this->horaire7 == $this->horaire6)){
+                $this->salles7 = [];
+                $this->enseignants7 = [];
+            }
+            else{
+                $this->id_salle7 = DB::table('cours')->where('jour', $this->jour7)->where('heure_debut', $this->horaire7)->get();
+                if(count($this->id_salle7)!=0){
+                    //  dd($this->id_sall2);
+                        if(count($this->id_salle7)==1){
+                                //enlever les salles occupées
+                                $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->salle1)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour7)
+                                    ->where('cours.heure_debut', '=', $this->horaire7);
+                                })->get();
+                                $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ense)->where('id', '<>', $this->enseignant1)->get();
+                        }
+                        if(count($this->id_salle7)==2){
+                                //enlever les salles occupées
+                                $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour7)
+                                    ->where('cours.heure_debut', '=', $this->horaire7);
+                                })->get();
+                                $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==3){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==4){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==5){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==6){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->where('id', '<>', $this->id_salle7[5]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==7){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->where('id', '<>', $this->id_salle7[5]->id_salle)->where('id', '<>', $this->id_salle7[6]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==8){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->where('id', '<>', $this->id_salle7[5]->id_salle)->where('id', '<>', $this->id_salle7[6]->id_salle)->where('id', '<>', $this->id_salle7[7]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==9){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->where('id', '<>', $this->id_salle7[5]->id_salle)->where('id', '<>', $this->id_salle7[6]->id_salle)->where('id', '<>', $this->id_salle7[7]->id_salle)->where('id', '<>', $this->id_salle7[8]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->get();
+                        }
+                        if(count($this->id_salle7)==10){
+                            //enlever les salles occupées
+                            $this->salles7 = DB::table('salles')->where('id', '<>', $this->id_salle7[0]->id_salle)->where('id', '<>', $this->id_salle7[1]->id_salle)->where('id', '<>', $this->id_salle7[2]->id_salle)->where('id', '<>', $this->id_salle7[3]->id_salle)->where('id', '<>', $this->id_salle7[4]->id_salle)->where('id', '<>', $this->id_salle7[5]->id_salle)->where('id', '<>', $this->id_salle7[6]->id_salle)->where('id', '<>', $this->id_salle7[7]->id_salle)->where('id', '<>', $this->id_salle7[8]->id_salle)->where('id', '<>', $this->id_salle7[9]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour7)
+                                ->where('cours.heure_debut', '=', $this->horaire7);
+                            })->get();
+                            $this->enseignants7 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->where('id', '<>', $id_ens[9]->id_ens)->get();
+                        }
+                        
+                }
+                else{
+                    $this->salles7 = DB::table('salles')->get();
+                    $this->enseignants7 = DB::table('enseignants')->get();
+                }
+            }
+        }
+
+
+        //on travaille sur le 8e enregistrement
+        if(!empty($this->jour7) and !empty($this->horaire7)){
+            if(($this->jour8 == $this->jour4 and $this->horaire8 == $this->horaire4) or ($this->jour8 ==$this->jour3 and $this->horaire8 ==$this->horaire3) or ($this->jour8 ==$this->jour2 and $this->horaire8 ==$this->horaire2) or ($this->jour8 ==$this->jour1 and $this->horaire8 ==$this->horaire1) or ($this->jour8 ==$this->jour5 and $this->horaire8 ==$this->horaire5) or ($this->jour8 == $this->jour6 and $this->horaire8 == $this->horaire6) or ($this->jour8 == $this->jour7 and $this->horaire8 == $this->horaire7)){
+                $this->salles8 = [];
+                $this->enseignants8 = [];
+            }
+            else{
+                $this->id_salle8 = DB::table('cours')->where('jour', $this->jour8)->where('heure_debut', $this->horaire8)->get();
+                if(count($this->id_salle8)!=0){
+                    //  dd($this->id_sall2);
+                        if(count($this->id_salle8)==1){
+                                //enlever les salles occupées
+                                $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->salle1)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour8)
+                                    ->where('cours.heure_debut', '=', $this->horaire8);
+                                })->get();
+                                $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ense)->where('id', '<>', $this->enseignant1)->get();
+                        }
+                        if(count($this->id_salle8)==2){
+                                //enlever les salles occupées
+                                $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour8)
+                                    ->where('cours.heure_debut', '=', $this->horaire8);
+                                })->get();
+                                $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==3){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==4){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==5){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==6){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->where('id', '<>', $this->id_salle8[5]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==7){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->where('id', '<>', $this->id_salle8[5]->id_salle)->where('id', '<>', $this->id_salle8[6]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==8){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->where('id', '<>', $this->id_salle8[5]->id_salle)->where('id', '<>', $this->id_salle8[6]->id_salle)->where('id', '<>', $this->id_salle8[7]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==9){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->where('id', '<>', $this->id_salle8[5]->id_salle)->where('id', '<>', $this->id_salle8[6]->id_salle)->where('id', '<>', $this->id_salle8[7]->id_salle)->where('id', '<>', $this->id_salle8[8]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->get();
+                        }
+                        if(count($this->id_salle8)==10){
+                            //enlever les salles occupées
+                            $this->salles8 = DB::table('salles')->where('id', '<>', $this->id_salle8[0]->id_salle)->where('id', '<>', $this->id_salle8[1]->id_salle)->where('id', '<>', $this->id_salle8[2]->id_salle)->where('id', '<>', $this->id_salle8[3]->id_salle)->where('id', '<>', $this->id_salle8[4]->id_salle)->where('id', '<>', $this->id_salle8[5]->id_salle)->where('id', '<>', $this->id_salle8[6]->id_salle)->where('id', '<>', $this->id_salle8[7]->id_salle)->where('id', '<>', $this->id_salle8[8]->id_salle)->where('id', '<>', $this->id_salle8[9]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour8)
+                                ->where('cours.heure_debut', '=', $this->horaire8);
+                            })->get();
+                            $this->enseignants8 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->where('id', '<>', $id_ens[9]->id_ens)->get();
+                        }
+                        
+                }
+                else{
+                    $this->salles8 = DB::table('salles')->get();
+                    $this->enseignants8 = DB::table('enseignants')->get();
+                }
+            }
+        }
+
+        //on traville sur le 9e enregistrement
+        if(!empty($this->jour8) and !empty($this->horaire8)){
+            if(($this->jour9 == $this->jour4 and $this->horaire9 == $this->horaire4) or ($this->jour9 ==$this->jour3 and $this->horaire9 ==$this->horaire3) or ($this->jour9 ==$this->jour2 and $this->horaire9 ==$this->horaire2) or ($this->jour9 ==$this->jour1 and $this->horaire9 ==$this->horaire1) or ($this->jour9 ==$this->jour5 and $this->horaire9 ==$this->horaire5) or ($this->jour9 == $this->jour6 and $this->horaire9 == $this->horaire6) or ($this->jour9 == $this->jour7 and $this->horaire9 == $this->horaire7) or ($this->jour9 == $this->jour8 and $this->horaire9 == $this->horaire8)){
+                $this->salles9 = [];
+                $this->enseignants9 = [];
+            }
+            else{
+                $this->id_salle9 = DB::table('cours')->where('jour', $this->jour9)->where('heure_debut', $this->horaire9)->get();
+                if(count($this->id_salle9)!=0){
+                    //  dd($this->id_sall2);
+                        if(count($this->id_salle9)==1){
+                                //enlever les salles occupées
+                                $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->salle1)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour9)
+                                    ->where('cours.heure_debut', '=', $this->horaire9);
+                                })->get();
+                                $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ense)->where('id', '<>', $this->enseignant1)->get();
+                        }
+                        if(count($this->id_salle9)==2){
+                                //enlever les salles occupées
+                                $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->get();    
+                                //enlever l'enseignant occupé de la liste des enseignants à afficher
+                                $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                    $join->on('enseignements.id', '=', 'cours.id_ense')
+                                    ->where('cours.jour' , '=', $this->jour9)
+                                    ->where('cours.heure_debut', '=', $this->horaire9);
+                                })->get();
+                                $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==3){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==4){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==5){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==6){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->where('id', '<>', $this->id_salle9[5]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==7){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->where('id', '<>', $this->id_salle9[5]->id_salle)->where('id', '<>', $this->id_salle9[6]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==8){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->where('id', '<>', $this->id_salle9[5]->id_salle)->where('id', '<>', $this->id_salle9[6]->id_salle)->where('id', '<>', $this->id_salle9[7]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==9){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->where('id', '<>', $this->id_salle9[5]->id_salle)->where('id', '<>', $this->id_salle9[6]->id_salle)->where('id', '<>', $this->id_salle9[7]->id_salle)->where('id', '<>', $this->id_salle9[8]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->get();
+                        }
+                        if(count($this->id_salle9)==10){
+                            //enlever les salles occupées
+                            $this->salles9 = DB::table('salles')->where('id', '<>', $this->id_salle9[0]->id_salle)->where('id', '<>', $this->id_salle9[1]->id_salle)->where('id', '<>', $this->id_salle9[2]->id_salle)->where('id', '<>', $this->id_salle9[3]->id_salle)->where('id', '<>', $this->id_salle9[4]->id_salle)->where('id', '<>', $this->id_salle9[5]->id_salle)->where('id', '<>', $this->id_salle9[6]->id_salle)->where('id', '<>', $this->id_salle9[7]->id_salle)->where('id', '<>', $this->id_salle9[8]->id_salle)->where('id', '<>', $this->id_salle9[9]->id_salle)->get();    
+                            //enlever l'enseignant occupé de la liste des enseignants à afficher
+                            $id_ens = DB::table(('enseignements'))->join('cours', function($join){
+                                $join->on('enseignements.id', '=', 'cours.id_ense')
+                                ->where('cours.jour' , '=', $this->jour9)
+                                ->where('cours.heure_debut', '=', $this->horaire9);
+                            })->get();
+                            $this->enseignants9 = DB::table('enseignants')->where('id', '<>', $id_ens[0]->id_ens)->where('id', '<>', $id_ens[1]->id_ens)->where('id', '<>', $id_ens[2]->id_ens)->where('id', '<>', $id_ens[3]->id_ens)->where('id', '<>', $id_ens[4]->id_ens)->where('id', '<>', $id_ens[5]->id_ens)->where('id', '<>', $id_ens[6]->id_ens)->where('id', '<>', $id_ens[7]->id_ens)->where('id', '<>', $id_ens[8]->id_ens)->where('id', '<>', $id_ens[9]->id_ens)->get();
+                        }
+                        
+                }
+                else{
+                    $this->salles9 = DB::table('salles')->get();
+                    $this->enseignants9 = DB::table('enseignants')->get();
+                }
+            }
+        }
+
         $this->mesues = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->get();
         if(!empty($this->mesues2)){
             $this->mesues2 = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->where('id', '<>', $this->matiere1)->get();
@@ -1332,6 +1910,15 @@ class PlanifierCours extends Component
         }
         if(!empty($this->mesues6)){
             $this->mesues6 = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        }
+        if(!empty($this->mesues7)){
+            $this->mesues7 = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        }
+        if(!empty($this->mesues8)){
+            $this->mesues8 = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->where('id', '<>', $this->matiere7)->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
+        }
+        if(!empty($this->mesues9)){
+            $this->mesues9 = DB::table('ues')->where('id_niveau', $this->eff[0]->id)->where('id', '<>', $this->matiere8)->where('id', '<>', $this->matiere7)->where('id', '<>', $this->matiere6)->where('id', '<>', $this->matiere5)->where('id', '<>', $this->matiere4)->where('id', '<>', $this->matiere3)->where('id', '<>', $this->matiere2)->where('id', '<>', $this->matiere1)->get();
         }
         return view('livewire.planifier-cours')->layout('layouts.app2');
     }
