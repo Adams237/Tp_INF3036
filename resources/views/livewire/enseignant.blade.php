@@ -219,9 +219,9 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div>
+                                    <!-- <div>
                                         <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Valider emploi de temps") }}</button>
-                                    </div>
+                                    </div> -->
                                 </form>
                             </div>
                     </div>

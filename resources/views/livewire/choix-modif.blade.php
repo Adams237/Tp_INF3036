@@ -72,7 +72,7 @@
 
                     </div>
                     <div>
-                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Créer emploi de temps") }}</button>
+                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Visualiser") }}</button>
                     </div>
 
                     

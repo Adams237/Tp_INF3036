@@ -11,8 +11,6 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Table</a></li>
-                        <li class="active">Basic table</li>
                     </ol>
                 </div>
             </div>
