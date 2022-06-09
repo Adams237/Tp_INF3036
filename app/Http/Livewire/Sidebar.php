@@ -32,6 +32,7 @@ class Sidebar extends Component
     {
         $this->filieres = DB::table('filieres')->get(); 
         $this->enseignants = DB::table('enseignants')->orderBy('nom_ens')->get();
+        // dd($this->enseignants);
         $this->salles = DB::table('salles')->orderBy('nom_salle')->get();
 
         return view('livewire.sidebar');

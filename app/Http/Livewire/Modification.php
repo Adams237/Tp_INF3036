@@ -201,6 +201,7 @@ class Modification extends Component
     public $ense = [];
     public $id_ens = [];
     public $specialites;
+    public $msg = ['msg'=> null];
 
     public function mount(Request $request){
         $this->specialite = $request->choixSpec;
@@ -339,10 +340,9 @@ class Modification extends Component
             $delete = DB::table('cours')->where('id_ense', $this->ense[$i]['id_ense'])->delete();
             $delete2 = DB::table('enseignement_ue')->where('id_ense', $this->ense[$i]['id_ense'])->delete();
             $delete3 = DB::table('enseignements')->where('id', $this->ense[$i]['id_ense'])->delete();
-            // dd('suppression reussi');
+            $this->msg = ['msg' => 'suppression reussite'];
 
         }
-        return view('livewire.modification')->layout('layouts.app2');
     }
 
     public function render()

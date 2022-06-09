@@ -429,9 +429,9 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div>
-                                        <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Supprimer emploi de temps") }}</button>
-                                    </div>
+                                        <div>
+                                            <button class="btn btn-primary btn-block waves-effect waves-light" type="submit">{{ __("Supprimer emploi de temps") }}</button>
+                                        </div>
                                 </form>
                             </div>
                     </div>

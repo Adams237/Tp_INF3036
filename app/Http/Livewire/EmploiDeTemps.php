@@ -189,7 +189,7 @@ class EmploiDeTemps extends Component
         $verifier = DB::table('enseignement_ue')->where('id_ue', $id_matiere)->value('id');
         // dd($verifier);
         if(!empty($verifier)){
-            dd('existe deja');
+            dd('emploi de temps existant');
         }
         else{
             $id_filiere = DB::table('filieres')->where('nom_filiere', $this->filiere)->value('id');
